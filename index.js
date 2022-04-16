@@ -16,9 +16,7 @@ app.get('/', (req, res) => {
   res.send('Hello Express app!')
 });
 
-app.listen(3000, () => {
-  console.log('server started');
-});
+app.listen(3000)
 db.on("ready", async () => {
   console.log("Connected to the database");
 });
