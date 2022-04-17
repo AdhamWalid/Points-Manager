@@ -78,8 +78,10 @@ if (message.content=== 'd!points'){
       const leaderboard = await Levels.computeLeaderboard(client, rawLeaderboard, true); // We process the leaderboard.
       
       const lb = leaderboard.map(e => `\`#${e.position}.\` ${e.username} - Level: **${e.level}** - XP: ${e.xp.toLocaleString()}`); // We map the outputs.
-      
-      message.channel.send(`**Leaderboard**:\n\n${lb.join("\n\n")}`);
+      const embed  = new Discord.MessageEmbed()
+      .setAuthor({name : `${message.guild.name}'s Leaderboard`, iconURL : message.guild.iconURL({dynamic:true})})
+      .setDescription(`${lb.join("\n\n")}`)
+      message.channel.send({embeds : [embed]});
     
       ;}
       })
