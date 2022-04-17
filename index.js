@@ -86,6 +86,7 @@ if (message.content === 'd!points'){
       .setAuthor({name : `${message.guild.name}'s Leaderboard`, iconURL : message.guild.iconURL({dynamic:true})})
       .setDescription(`${lb.join("\n\n")}`)
       .setColor('BLURPLE')
+      .setThumbnail(message.guild.iconURL({dynamic:true}))
       .setFooter({text : `Earn XP by chatting!`})
       message.channel.send({embeds : [embed]});
     
