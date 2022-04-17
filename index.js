@@ -61,7 +61,7 @@ if (message.content=== 'd!points'){
     .addField(`Rank` , `${user.position}` , true)
     .addField(`Level` , `${user.level}` , true)
     .addField(`XP` , `${user.xp + "/" + Levels.xpFor(user.level + 1)}`)
-    .setThumbnail(message.guild.iconURL({dynamics:true}))
+    .setThumbnail(message.guild.iconURL({dynamic:true}))
     .setFooter({text : `Earn XP by chatting`})
     .setColor("BLURPLE")
 
