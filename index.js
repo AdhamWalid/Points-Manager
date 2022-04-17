@@ -44,8 +44,8 @@ client.on("messageCreate", async (message) => {
 
 
 client.on('messageCreate', async (message) => {
-if (message.content=== 'd!points'){
-
+if (message.content.startsWith ('d!points')){
+   
   const target = message.mentions.users.first() || message.author; // Grab the target.
 
   const user = await Levels.fetch(target.id, message.guild.id, true); // Selects the target from the database.
