@@ -75,7 +75,7 @@ if (message.content === 'd!points'){
 
 
   client.on('messageCreate' , async (message) => {
-    if(message.content === prefix + 'ping'){
+    if(message.content.startsWith (prefix + 'ping')){
       message.reply(`${client.ws.ping}ms`)
     }
   })
