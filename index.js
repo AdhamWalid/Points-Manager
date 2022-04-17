@@ -81,6 +81,8 @@ if (message.content=== 'd!points'){
       const embed  = new Discord.MessageEmbed()
       .setAuthor({name : `${message.guild.name}'s Leaderboard`, iconURL : message.guild.iconURL({dynamic:true})})
       .setDescription(`${lb.join("\n\n")}`)
+      .setColor('BLURPLE')
+      .setFooter({text : `Earn XP by chatting!`})
       message.channel.send({embeds : [embed]});
     
       ;}
