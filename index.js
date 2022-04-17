@@ -23,7 +23,13 @@ db.on("ready", async () => {
 client.on('ready' , async () => {
   await db.connect()
   console.log(`Logged in as ${client.user.tag}`)
-})
+  client.user.setActivity(`Your Points`, {
+    type: "WATCHING",
+  })
+  
+  client.user.setPresence({
+    status: "idle",
+  })})
 
 client.on("messageCreate", async (message) => {
   if (!message.guild) return;
