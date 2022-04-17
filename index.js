@@ -73,6 +73,12 @@ if (message.content === 'd!points'){
 }
   })
 
+
+  client.on('messageCreate' , async (message) => {
+    if(message.content === prefix + 'ping'){
+      message.reply(`${client.ws.ping}ms`)
+    }
+  })
   client.on('messageCreate', async (message) => {
     if (message.content=== prefix + 'top'){
       const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10); // We grab top 10 users with most xp in the current server.
