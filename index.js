@@ -44,7 +44,7 @@ client.on("messageCreate", async (message) => {
 
 
 client.on('messageCreate', async (message) => {
-if (message.content === 'd!points'){
+if (message.content.startsWith(prefix + 'points')){
    
   const target = message.mentions.users.first() || message.author; // Grab the target.
 
