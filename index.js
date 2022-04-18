@@ -49,7 +49,7 @@ if (message.content.startsWith(prefix + 'points')){
   const target = message.mentions.users.first() || message.author; // Grab the target.
 
   const user = await Levels.fetch(target.id, message.guild.id, true); // Selects the target from the database.
-  let ppinvites = db.get(`user_${message.author.id}.invites`)
+  let ppinvites = await db.get(`user_${message.author.id}.invites`)
   if (!ppinvites) ppinvites = 0;
   console.log(ppinvites)
     const embed = new Discord.MessageEmbed()
