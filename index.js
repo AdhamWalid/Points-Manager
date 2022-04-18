@@ -51,7 +51,7 @@ if (message.content === 'd!points'){
   const user = await Levels.fetch(target.id, message.guild.id, true); // Selects the target from the database.
   let ppinvites = db.get(`user_${message.author.id}.invites`)
   if (!ppinvites) ppinvites = 0;
-
+  console.log(ppinvites)
     const embed = new Discord.MessageEmbed()
     .setAuthor({name : `${message.author.username} Rank` , iconURL : message.author.avatarURL({dynamics:true})})
     .addField(`Rank` , `${user.position}` , true)
