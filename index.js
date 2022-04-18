@@ -49,21 +49,15 @@ if (message.content === 'd!points'){
   const target = message.mentions.users.first() || message.author; // Grab the target.
 
   const user = await Levels.fetch(target.id, message.guild.id, true); // Selects the target from the database.
-  
-//   const rank = new canvacord.Rank() // Build the Rank Card
-//       .setAvatar(target.displayAvatarURL({format: 'png', size: 512}))
-//       .setCurrentXP(user.xp) // Current User Xp
-//       .setRequiredXP(Levels.xpFor(user.level + 1)) // We calculate the required Xp for the next level
-//       .setRank(user.position) // Position of the user on the leaderboard
-//       .setLevel(user.level) // Current Level of the user
-//       .setProgressBar("#FFFFFF")
-//       .setUsername(target.username)
-//       .setDiscriminator(target.discriminator);
+  let ppinvites = db.get(`user_${message.author.id}.invites`)
+  if (!ppinvites) ppinvites = 0;
 
     const embed = new Discord.MessageEmbed()
     .setAuthor({name : `${message.author.username} Rank` , iconURL : message.author.avatarURL({dynamics:true})})
     .addField(`Rank` , `${user.position}` , true)
     .addField(`Level` , `${user.level}` , true)
+    .addField(`Dc-Points` , `${ppinvites}` , true)
+
     .addField(`XP` , `${user.xp + "/" + Levels.xpFor(user.level + 1)}`)
     .setThumbnail(message.guild.iconURL({dynamic:true}))
     .setFooter({text : `Earn XP by chatting`})
