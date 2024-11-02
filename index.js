@@ -2,11 +2,11 @@ const express = require('express');
 const Levels = require("discord-xp");
 const prefix = 'd!'
 const {Database}  = require("quickmongo");
-const db = new Database(`mongodb+srv://Velvet:cZQk4SVbG9utLM5h@cluster0.vx3jf.mongodb.net/dev-center?retryWrites=true&w=majority`);
+const db = new Database(`MONGODB_STRING`);
 const Discord = require('discord.js')
 const client = new Discord.Client({intents : 32767}) 
 require('dotenv').config()
-Levels.setURL(`${`mongodb+srv://Velvet:cZQk4SVbG9utLM5h@cluster0.vx3jf.mongodb.net/dev-center?retryWrites=true&w=majority`}`)
+Levels.setURL(`MONGODB_STRING`)
 
   const app = express();
 
@@ -92,4 +92,4 @@ if (message.content.startsWith(prefix + 'points')){
       ;}
       })
     
-client.login("OTYxMzc3MDU3NDA3OTA1ODA1.Yk4GKA.-Vpm51cj25cs7wAZn29l-CUDWAM")
+client.login("DISCORDBOT_TOKEN")
